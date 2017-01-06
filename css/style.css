@@ -22,7 +22,6 @@ body {
 
 /* 定义所有链接的样式 */
 a {
-	text-decoration: none;
 	cursor: pointer;
 	color: #000;
 }

@@ -1,0 +1,25 @@
+{
+  "name": "picturewall",
+  "version": "1.0.0",
+  "description": "picture wall",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caishijian2008/picturewall.git"
+  },
+  "author": "csj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caishijian2008/picturewall/issues"
+  },
+  "homepage": "https://github.com/caishijian2008/picturewall#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass": "^3.0.0",
+    "jshint": "^2.9.4"
+  }
+}

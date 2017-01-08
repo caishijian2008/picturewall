@@ -6,26 +6,114 @@
 	margin: 0;
 }
 
-article,aside,dialog,figcaption,figure,footer,header,section,footer,nav,menu,video {
-	display:block;
-}
-
 html {
-    font-size: 16px;
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
 }
 
 body {
-	font-size: 1rem;
-	font-family: Arial,Helvetica,"Microsoft Yahei",sans-serif,"Open Sans","Helvetica Neue",STHeiti;
 	background-color: #fff;
+}
+
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+section,
+nav,
+menu,
+section,
+summary {
+	display:block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 /* 定义所有链接的样式 */
 a {
-	cursor: pointer;
-	color: #000;
+  cursor: pointer;
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
 }
 
-ul {list-style: none;}
+ol, 
+ul {
+		list-style: none;
+}
 
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+input {
+  line-height: normal;
+}
+
+/* Box Model */
+*, 
+*:before, 
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* 返回顶部 */
+.gototop {
+	position: fixed;
+	right: 1%;
+	bottom: 5%;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	border: 1px solid #eee;
+	z-index: 1040;
+	background: #fff url(../images/gotop.png) no-repeat 10px 10px;
+	cursor: pointer;
+	border-radius: 6px;
+}

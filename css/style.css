@@ -47,12 +47,70 @@ a:active,
 a:hover {
   outline: 0;
 }
+a:hover {
+    text-decoration: none;
+}
 
 h1 {
   margin: .67em 0;
   font-size: 2em;
 }
 
+/* Box Model */
+*, 
+*:before, 
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* 初始化body的动画和过渡效果 */
+body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+  -moz-animation: none !important;
+  -webkit-animation: none !important;
+  -ms-animation: none !important;
+  animation: none !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+input[type="button"],
+button,
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  -webkit-transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  -ms-transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 300;
+  height: 2.85em;
+  line-height: 2.95em;
+  padding: 0 2.5em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+ 
+button.alt, 
+.button.alt {
+    background: #fff;
+    color: #4267b2;
+}
+.button.big {
+    font-size: 1.35em;
+}
+
+/* 引用特定图标 */
 @font-face {
   font-family: 'Glyphicons Halflings';
 
@@ -75,19 +133,19 @@ h1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.glyphicon-info-sign:before {
+.glyphicon-info-sign:before { /* 信息图标 */
   content: "\e086";
 }
-.glyphicon-home:before {
+.glyphicon-home:before { /* 主页图标 */
   content: "\e021";
 }
 
 /* Header */
 #header {
-  transition: background 1s ease-in-out, height 0.2s ease-in-out;
-  -moz-transition: background 1s ease-in-out, height 0.2s ease-in-out;
-  -webkit-transition: background 1s ease-in-out, height 0.2s ease-in-out;
-  -ms-transition: background 1s ease-in-out, height 0.2s ease-in-out;
+  transition: background 1s ease-in-out, height .2s ease-in-out;
+  -moz-transition: background 1s ease-in-out, height .2s ease-in-out;
+  -webkit-transition: background 1s ease-in-out, height .2s ease-in-out;
+  -ms-transition: background 1s ease-in-out, height .2s ease-in-out;
   /* 使得内容分开两边 */
   display: flex;
   display: -moz-flex;
@@ -98,7 +156,7 @@ h1 {
   -moz-justify-content: center;
   -webkit-justify-content: center;
   -ms-justify-content: center;
-  /* 拉伸对齐 */
+  /* 居中对齐各项 */
   align-items: center;
   -moz-align-items: center;
   -webkit-align-items: center;
@@ -114,10 +172,10 @@ h1 {
   z-index: 10001;
 }
 #header .inner {
-  transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
-  -moz-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
-  -webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
-  -ms-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
+  transition: height .2s ease-in-out, width .2s ease-in-out;
+  -moz-transition: height .2s ease-in-out, width .2s ease-in-out;
+  -webkit-transition: height .2s ease-in-out, width .2s ease-in-out;
+  -ms-transition: height .2s ease-in-out, width .2s ease-in-out;
   display: flex;
   display: -moz-flex;
   display: -webkit-flex;
@@ -172,42 +230,48 @@ h1 {
   margin: 0;
   border-radius: 30px;
 }
-a:hover {
-    text-decoration: none;
-}
-.button {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 300;
-  height: 2.85em;
-  line-height: 2.95em;
-  padding: 0 2.5em;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-}
- 
-button.alt, 
-.button.alt {
-    background: #fff;
-    color: #4267b2;
-}
-.button.big {
-    font-size: 1.35em;
-}
-
-#header .inner .button.hidden {
+#header .inner .button.hidden {/* 隐藏button按钮 */
   display: none;
   cursor: pointer;
 }
 #header .inner.hidden {
   display: none;
 }
+
+/* 当为#header添加hide类时的样式 */
+#header.hide,
+#header.preview {
+  transition: background .2s ease-in-out, height 1s ease-in-out;
+  -moz-transition: background .2s ease-in-out, height 1s ease-in-out;
+  -webkit-transition: background .2s ease-in-out, height 1s ease-in-out;
+  -ms-transition: background .2s ease-in-out, height 1s ease-in-out;
+  background: none;
+  height: 0;
+}
+#header.hide .inner,
+#header.preview .inner {
+  height: 6em;
+  width: 6em;
+  padding: 2em;
+}
+#header.hide .inner .content,
+#header.preview .inner .content {
+  opacity: 0;
+}
+#header.hide .inner .content h1,
+#header.preview .inner .content h1 {
+  display: none;
+}
+#header.hide .inner .content h2,
+#header.preview .inner .content h2 {
+  display: none;
+}
+#header.hide .button.big,
+#header.preview .button.big {
+  display: none;
+}
+
+/* 大圈隐藏后的样式 */
 #header.hide .button.hidden, 
 #header.preview .button.hidden {
   text-decoration: none;
@@ -228,12 +292,12 @@ button.alt,
   text-transform: none !important;
 }
 
-/* #header.hide .button.hidden:before, 
+#header.hide .button.hidden:before, 
 #header.preview .button.hidden:before {
-  content: '\e086';
+  content: '\e021';
   color: #fff;
   font-size: 1.5em;
-} */
+}
 
 #header.hide .button.hidden span, 
 #header.preview .button.hidden span {
@@ -293,10 +357,10 @@ button.alt,
   overflow: hidden;
 }
 .columns .image img {
-  transition: transform 0.2s ease-in-out;
-  -moz-transition: -moz-transform 0.2s ease-in-out;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  -ms-transition: -ms-transform 0.2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  -moz-transition: -moz-transform .2s ease-in-out;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  -ms-transition: -ms-transform .2s ease-in-out;
   -webkit-backface-visibility: hidden;
   /* -webkit-transform: translate3D(0, 0, 0); */
 }
@@ -342,15 +406,6 @@ button.alt,
   width: 100%;
 }
 
-/* Box Model */
-*, 
-*:before, 
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* 返回顶部 */
 .gototop {
   position: fixed;
@@ -368,10 +423,10 @@ button.alt,
 
 /* Footer */
 #footer {
-  -moz-transition: bottom 0.2s ease;
-  -webkit-transition: bottom 0.2s ease;
-  -ms-transition: bottom 0.2s ease;
-  transition: bottom 0.2s ease;
+  -moz-transition: bottom .2s ease;
+  -webkit-transition: bottom .2s ease;
+  -ms-transition: bottom .2s ease;
+  transition: bottom .2s ease;
   position: fixed;
   bottom: -20em;
   color: #fff;
@@ -379,6 +434,9 @@ button.alt,
   width: 100%;
   text-align: center;
   z-index: 9999;
+}
+#footer.show {
+  bottom: 0;
 }
 #footer .info {
   position: relative;
@@ -443,6 +501,7 @@ button.alt,
 #footer .inner .copyright p {
  margin: 0;
 }
+
 @media screen and (max-width: 980px) {
   #footer {
     position: relative;

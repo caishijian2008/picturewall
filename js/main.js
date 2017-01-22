@@ -8,7 +8,7 @@
     xsmall: '(max-width: 480px)'
   });*/
 
-  /*  */
+  /* 添加类的动画操作 */
   $(function() {
     var $window = $(window),
         $body = $('body'),
@@ -46,10 +46,19 @@
         event.preventDefault();
       });
     });
-
   });
 
-
+  /* */
+  /*$(".columns .image.fit").on('click', function() {
+      layer.open({
+        type: 2,
+        title: '',
+        maxmin: false,
+        shadeClose: true, //点击遮罩关闭层
+        area : ['800px' , '520px'],
+        content: 'detail1.html'
+      });
+  });*/
 
   /* scroll to top */
   $(".gototop").hide();

@@ -70,7 +70,9 @@ p {
 }
 
 /* 初始化body的动画和过渡效果 */
-body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+/* body.is-loading *, 
+body.is-loading *:before, 
+body.is-loading *:after {
   -moz-animation: none !important;
   -webkit-animation: none !important;
   -ms-animation: none !important;
@@ -79,7 +81,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
   -webkit-transition: none !important;
   -ms-transition: none !important;
   transition: none !important;
-}
+} */
 
 input[type="button"],
 button,
